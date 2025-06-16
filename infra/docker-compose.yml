@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  app:
+    build: ../server
+    volumes:
+      - ../server:/app
+    ports:
+      - "8000:8000"
+    command: php -S 0.0.0.0:8000 -t public
+  client:
+    build: ../client
+    volumes:
+      - ../client:/client
+    ports:
+      - "3000:3000"
+    command: npm run dev
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: lojavirtual
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+volumes:
+  db-data:
