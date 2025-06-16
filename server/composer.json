@@ -1,0 +1,11 @@
+{
+  "name": "loja-virtual/server",
+  "type": "project",
+  "require": {
+    "php": "^8.2",
+    "laravel/framework": "^11.0"
+  },
+  "scripts": {
+    "start": "php -S localhost:8000 -t public"
+  }
+}
